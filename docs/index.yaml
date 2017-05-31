@@ -1,7 +1,7 @@
 apiVersion: v1
 entries:
   grafana:
-  - created: 2017-05-31T10:21:39.038239501-04:00
+  - created: 2017-05-31T11:07:05.479860834-04:00
     description: The leading tool for querying and visualizing time series and metrics.
     digest: a54c6840abe3f2ba78bd3de0686dcbbda5a387ed3f3936125917ed73a25878ce
     engine: gotpl
@@ -14,10 +14,10 @@ entries:
     sources:
     - https://github.com/grafana/grafana
     urls:
-    - grafana-0.3.5.tgz
+    - https://apprenda.github.io/kismatic-charts/grafana-0.3.5.tgz
     version: 0.3.5
   prometheus:
-  - created: 2017-05-31T10:21:39.03878068-04:00
+  - created: 2017-05-31T11:07:05.480426791-04:00
     description: Prometheus is a monitoring system and time series database.
     digest: 4e72afed0f28bd5f8648d3caf093e9920c805b1fddc2134188ed7443fe55716c
     engine: gotpl
@@ -32,6 +32,6 @@ entries:
     - https://github.com/prometheus/prometheus
     - https://github.com/kubernetes/kube-state-metrics
     urls:
-    - prometheus-3.0.2.tgz
+    - https://apprenda.github.io/kismatic-charts/prometheus-3.0.2.tgz
     version: 3.0.2
-generated: 2017-05-31T10:21:39.037664163-04:00
+generated: 2017-05-31T11:07:05.478815263-04:00
