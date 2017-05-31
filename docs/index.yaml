@@ -1,0 +1,37 @@
+apiVersion: v1
+entries:
+  grafana:
+  - created: 2017-05-31T10:21:39.038239501-04:00
+    description: The leading tool for querying and visualizing time series and metrics.
+    digest: a54c6840abe3f2ba78bd3de0686dcbbda5a387ed3f3936125917ed73a25878ce
+    engine: gotpl
+    home: https://grafana.net
+    icon: https://raw.githubusercontent.com/grafana/grafana/master/public/img/logo_transparent_400x.png
+    maintainers:
+    - email: zanhsieh@gmail.com
+      name: Ming Hsieh
+    name: grafana
+    sources:
+    - https://github.com/grafana/grafana
+    urls:
+    - grafana-0.3.5.tgz
+    version: 0.3.5
+  prometheus:
+  - created: 2017-05-31T10:21:39.03878068-04:00
+    description: Prometheus is a monitoring system and time series database.
+    digest: 4e72afed0f28bd5f8648d3caf093e9920c805b1fddc2134188ed7443fe55716c
+    engine: gotpl
+    home: https://prometheus.io/
+    icon: https://raw.githubusercontent.com/prometheus/prometheus.github.io/master/assets/prometheus_logo-cb55bb5c346.png
+    maintainers:
+    - email: mgoodness@gmail.com
+      name: Michael Goodness
+    name: prometheus
+    sources:
+    - https://github.com/prometheus/alertmanager
+    - https://github.com/prometheus/prometheus
+    - https://github.com/kubernetes/kube-state-metrics
+    urls:
+    - prometheus-3.0.2.tgz
+    version: 3.0.2
+generated: 2017-05-31T10:21:39.037664163-04:00
