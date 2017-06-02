@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "elasticsearch.discovery.fullname" . }}
+  labels:
+    app: {{ template "elasticsearch.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    component: {{ .Values.name }}
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+    role: master
+spec:
+  type: ClusterIP
+  selector:
+    app: {{ template "elasticsearch.name" . }}
+    component: {{ .Values.name }}
+    role: master
+  ports:
+  - name: transport
+    port: 9300
+    protocol: TCP
