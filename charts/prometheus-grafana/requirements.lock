@@ -1,0 +1,17 @@
+dependencies:
+- condition: ""
+  enabled: false
+  import-values: null
+  name: prometheus
+  repository: https://kubernetes-charts.storage.googleapis.com
+  tags: null
+  version: 3.0.2
+- condition: ""
+  enabled: false
+  import-values: null
+  name: grafana
+  repository: http://127.0.0.1:8879
+  tags: null
+  version: 0.3.6
+digest: sha256:637d4d185008e307a40489a79f59f0ff29d520653b24a65127f41b8d58dd721d
+generated: 2017-06-02T12:04:36.752872175-04:00

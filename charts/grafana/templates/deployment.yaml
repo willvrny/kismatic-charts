@@ -60,6 +60,7 @@ spec:
               mountPath: {{ default "/etc/grafana" .Values.server.configLocalPath | quote }}
             - name: storage-volume
               mountPath: {{ default "/var/lib/grafana/data" .Values.server.storageLocalPath | quote }}
+              subPath: "{{ .Values.server.persistentVolume.subPath }}"
         - name: "{{ .Values.watcher.name }}"
           image: "{{ .Values.watcher.image }}"
           imagePullPolicy: {{ default "Always" .Values.watcher.imagePullPolicy }}

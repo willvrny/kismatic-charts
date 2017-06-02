@@ -1,0 +1,2 @@
+# dont include tars in the source code
+charts/*/charts
