@@ -1,5 +1,5 @@
-apiVersion: extensions/v1beta1
-kind: Deployment
+apiVersion: apps/v1beta1
+kind: StatefulSet
 metadata:
   name: {{ template "elasticsearch.data.fullname" . }}
   labels:
@@ -10,6 +10,7 @@ metadata:
     release: {{ .Release.Name }}
     role: data
 spec:
+  serviceName: {{ template "elasticsearch.service.fullname" . }}
   replicas: {{ .Values.elasticsearch.data.replicas }}
   template:
     metadata:
@@ -71,7 +72,21 @@ spec:
         volumeMounts:
         - name: storage
           mountPath: /data
+{{- if .Values.elasticsearch.data.persistence.enabled }}
+  volumeClaimTemplates:
+  - metadata:
+      name: storage
+      annotations:
+        volume.beta.kubernetes.io/storage-class: {{ .Values.elasticsearch.data.persistence.storageClass | quote }}
+    spec:
+      accessModes: 
+        - {{ .Values.elasticsearch.data.persistence.accessMode | quote }}
+      resources:
+        requests:
+          storage: {{ .Values.elasticsearch.data.persistence.size | quote }}
+{{- else }}
       volumes:
           - emptyDir:
               medium: ""
             name: "storage"
+{{- end }}

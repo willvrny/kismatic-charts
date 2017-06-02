@@ -28,6 +28,14 @@ Fully qualified name for ElasticSearch data
 {{- end -}}
 
 {{/*
+Fully qualified name for ElasticSearch stateful set headless service
+*/}}
+{{- define "elasticsearch.data.service.fullname" -}}
+{{- printf "%s-%s" .Release.Name "es-data" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}
+
+
+{{/*
 Fully qualified name for ElasticSearch service
 */}}
 {{- define "elasticsearch.service.fullname" -}}

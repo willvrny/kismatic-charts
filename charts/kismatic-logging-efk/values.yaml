@@ -11,6 +11,11 @@ elasticsearch:
     replicas: 3
   data:
     replicas: 2
+    persistence:
+      enabled: true
+      storageClasee: default
+      accessMode: ReadWriteOnce
+      storage: 12Gi
 
 fluentd:
   name: fluentd
