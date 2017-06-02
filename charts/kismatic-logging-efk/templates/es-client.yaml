@@ -53,7 +53,7 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         - name: "CLUSTER_NAME"
-          value: "myesdb"
+          value: {{ .Values.elasticsearch.clusterName }}
         - name: NODE_MASTER
           value: "false"
         - name: NODE_DATA

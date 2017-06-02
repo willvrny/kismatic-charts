@@ -1,10 +1,11 @@
-# Default values for kismatic-logging-efk
 elasticsearch:
   name: elasticsearch
   image: quay.io/pires/docker-elasticsearch-kubernetes:5.4.0
+  clusterName: myesdb
   serviceType: ClusterIP
   # https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html
   increaseMemMapLimit: true
+  
   client:
     replicas: 2
   master:
