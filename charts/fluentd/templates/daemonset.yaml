@@ -1,0 +1,49 @@
+apiVersion: extensions/v1beta1
+kind: DaemonSet
+metadata:
+  name: {{ template "fluentd.fullname" . }}
+  labels:
+    app: {{ template "fluentd.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    component: {{ .Values.name }}
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+    kubernetes.io/cluster-service: "true"
+spec:
+  template:
+    metadata:
+      labels:
+        app: {{ template "fluentd.name" . }}
+        component: {{ .Values.name }}
+        release: {{ .Release.Name }}
+        kubernetes.io/cluster-service: "true"
+    spec:
+      containers:
+      - name: fluentd
+        image: {{ .Values.image }}
+        env:
+          - name:  FLUENT_ELASTICSEARCH_HOST
+            value: "{{ .Values.elasticsearch.host }}"
+          - name:  FLUENT_ELASTICSEARCH_PORT
+            value: "{{ .Values.elasticsearch.port }}"
+        resources:
+{{ toYaml .Values.resources | indent 10 }}
+        volumeMounts:
+        - name: config
+          mountPath: /fluentd/etc
+        - name: varlog
+          mountPath: /var/log
+        - name: varlibdockercontainers
+          mountPath: /var/lib/docker/containers
+          readOnly: true
+      terminationGracePeriodSeconds: 30
+      volumes:
+      - name: config
+        configMap:
+          name: {{ template "fluentd.configmap.fullname" .}}
+      - name: varlog
+        hostPath:
+          path: /var/log
+      - name: varlibdockercontainers
+        hostPath:
+          path: /var/lib/docker/containers
