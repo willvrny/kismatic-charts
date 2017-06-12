@@ -23,10 +23,7 @@ spec:
         image: {{ .Values.image }}
         resources:
           # keep request = limit to keep this container in guaranteed class
-          limits:
-            cpu: {{ .Values.resources.limits.cpu }}
-          requests:
-            cpu: {{ .Values.resources.requests.cpu }}
+{{ toYaml .Values.resources | indent 10 }}
         env:
           - name: "ELASTICSEARCH_URL"
             value: "http://{{ .Values.elasticsearch.host }}:{{ .Values.elasticsearch.port }}"
