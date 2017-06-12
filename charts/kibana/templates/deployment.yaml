@@ -1,0 +1,36 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "kibana.fullname" . }}
+  labels:
+    app: {{ template "kibana.name" . }}
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    component: {{ .Values.name }}
+    heritage: {{ .Release.Service }}
+    release: {{ .Release.Name }}
+    kubernetes.io/cluster-service: "true"
+spec:
+  replicas: {{ .Values.replicas }}
+  template:
+    metadata:
+      labels:
+        app: {{ template "kibana.name" . }}
+        component: {{ .Values.name }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: kibana-logging
+        image: {{ .Values.image }}
+        resources:
+          # keep request = limit to keep this container in guaranteed class
+          limits:
+            cpu: {{ .Values.resources.limits.cpu }}
+          requests:
+            cpu: {{ .Values.resources.requests.cpu }}
+        env:
+          - name: "ELASTICSEARCH_URL"
+            value: "http://{{ .Values.elasticsearch.host }}:{{ .Values.elasticsearch.port }}"
+        ports:
+        - containerPort: 5601
+          name: ui
+          protocol: TCP
