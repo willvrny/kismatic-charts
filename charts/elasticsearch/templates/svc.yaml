@@ -5,15 +5,15 @@ metadata:
   labels:
     app: {{ template "elasticsearch.fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-    component: {{ .Values.name }}
-    heritage: {{ .Release.Service }}
-    release: {{ .Release.Name }}
+    component: {{ .Values.name | quote }}
+    heritage: {{ .Release.Service | quote }}
+    release: {{ .Release.Name | quote }}
     role: client
 spec:
   type: {{ .Values.serviceType }}
   selector:
     app: {{ template "elasticsearch.fullname" . }}
-    component: {{ .Values.name }}
+    component: {{ .Values.name | quote }}
     role: client
   ports:
   - name: http

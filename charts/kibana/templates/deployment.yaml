@@ -5,9 +5,9 @@ metadata:
   labels:
     app: {{ template "kibana.fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-    component: {{ .Values.name }}
-    heritage: {{ .Release.Service }}
-    release: {{ .Release.Name }}
+    component: {{ .Values.name | quote }}
+    heritage: {{ .Release.Service | quote }}
+    release: {{ .Release.Name | quote }}
     kubernetes.io/cluster-service: "true"
 spec:
   replicas: {{ .Values.replicas }}
@@ -15,12 +15,12 @@ spec:
     metadata:
       labels:
         app: {{ template "kibana.fullname" . }}
-        component: {{ .Values.name }}
-        release: {{ .Release.Name }}
+        component: {{ .Values.name | quote }}
+        release: {{ .Release.Name | quote }}
     spec:
       containers:
       - name: kibana-logging
-        image: {{ .Values.image }}
+        image: {{ .Values.image | quote }}
         resources:
           # keep request = limit to keep this container in guaranteed class
 {{ toYaml .Values.resources | indent 10 }}

@@ -5,17 +5,17 @@ metadata:
   labels:
     app: {{ template "kibana.fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-    component: {{ .Values.name }}
-    heritage: {{ .Release.Service }}
-    release: {{ .Release.Name }}
+    component: {{ .Values.name | quote }}
+    heritage: {{ .Release.Service | quote }}
+    release: {{ .Release.Name | quote }}
     kubernetes.io/cluster-service: "true"
     kubernetes.io/name: "Kibana"
 spec:
-  type: {{ .Values.serviceType }}
+  type: {{ .Values.serviceType | quote }}
   ports:
   - port: 5601
     protocol: TCP
     targetPort: ui
   selector:
     app: {{ template "kibana.fullname" . }}
-    component: {{ .Values.name }}
+    component: {{ .Values.name | quote }}

@@ -5,8 +5,8 @@ metadata:
   labels:
     app: {{ template "fluentd.fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-    component: {{ .Values.name }}
-    heritage: {{ .Release.Service }}
-    release: {{ .Release.Name }}
+    component: {{ .Values.name | quote }}
+    heritage: {{ .Release.Service | quote }}
+    release: {{ .Release.Name | quote }}
 data:
 {{ toYaml .Values.configFiles | indent 2 }}

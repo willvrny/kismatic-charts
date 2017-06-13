@@ -5,9 +5,9 @@ metadata:
   labels:
     app: {{ template "elasticsearch.fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-    component: {{ .Values.name }}
-    heritage: {{ .Release.Service }}
-    release: {{ .Release.Name }}
+    component: {{ .Values.name | quote }}
+    heritage: {{ .Release.Service | quote }}
+    release: {{ .Release.Name | quote }}
     role: master
 spec:
   replicas: {{ .Values.master.replicas }}
@@ -15,8 +15,8 @@ spec:
     metadata:
       labels:
         app: {{ template "elasticsearch.fullname" . }}
-        component: {{ .Values.name }}
-        release: {{ .Release.Name }}
+        component: {{ .Values.name | quote }}
+        release: {{ .Release.Name | quote }}
         role: master
       annotations:
       {{- if .Values.increaseMemMapLimit }}
@@ -41,7 +41,7 @@ spec:
             add:
               - IPC_LOCK
               - SYS_RESOURCE
-        image: {{ .Values.image }}
+        image: {{ .Values.image | quote }}
         imagePullPolicy: Always
         env:
         - name: NAMESPACE
@@ -53,7 +53,7 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         - name: "CLUSTER_NAME"
-          value: {{ .Values.clusterName }}
+          value: {{ .Values.clusterName | quote }}
           # https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html#split-brain
           # The number of minimum master nodes is set according to:
           # (master_eligible_nodes / 2) + 1

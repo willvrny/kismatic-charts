@@ -5,9 +5,9 @@ metadata:
   labels:
     app: {{ template "elasticsearch.fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-    component: {{ .Values.name }}
-    heritage: {{ .Release.Service }}
-    release: {{ .Release.Name }}
+    component: {{ .Values.name | quote }}
+    heritage: {{ .Release.Service | quote }}
+    release: {{ .Release.Name | quote }}
     role: data
 spec:
   serviceName: {{ template "elasticsearch.service.fullname" . }}
@@ -16,8 +16,8 @@ spec:
     metadata:
       labels:
         app: {{ template "elasticsearch.fullname" . }}
-        component: {{ .Values.name }}
-        release: {{ .Release.Name }}
+        component: {{ .Values.name | quote }}
+        release: {{ .Release.Name | quote }}
         role: data
       annotations:
       {{- if .Values.increaseMemMapLimit }}
@@ -42,7 +42,7 @@ spec:
             add:
               - IPC_LOCK
               - SYS_RESOURCE
-        image: {{ .Values.image }}
+        image: {{ .Values.image | quote }}
         imagePullPolicy: Always
         env:
         - name: NAMESPACE
@@ -54,7 +54,7 @@ spec:
             fieldRef:
               fieldPath: metadata.name
         - name: "CLUSTER_NAME"
-          value: {{ .Values.clusterName }}
+          value: {{ .Values.clusterName | quote }}
         - name: NODE_MASTER
           value: "false"
         - name: NODE_INGEST
