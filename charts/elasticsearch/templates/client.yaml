@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: {{ template "elasticsearch.client.fullname" . }}
   labels:
-    app: {{ template "elasticsearch.name" . }}
+    app: {{ template "elasticsearch.fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
     component: {{ .Values.name }}
     heritage: {{ .Release.Service }}
@@ -14,7 +14,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ template "elasticsearch.name" . }}
+        app: {{ template "elasticsearch.fullname" . }}
         component: {{ .Values.name }}
         release: {{ .Release.Name }}
         role: client

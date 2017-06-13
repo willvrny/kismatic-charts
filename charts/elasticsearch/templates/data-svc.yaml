@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ template "elasticsearch.data.service.fullname" . }} 
   labels:
-    app: {{ template "elasticsearch.name" . }}
+    app: {{ template "elasticsearch.fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
     component: {{ .Values.name }}
     heritage: {{ .Release.Service }}
@@ -15,6 +15,6 @@ spec:
     name: transport
   clusterIP: None
   selector:
-    app: {{ template "elasticsearch.name" . }}
+    app: {{ template "elasticsearch.fullname" . }}
     component: {{ .Values.name }}
     role: data

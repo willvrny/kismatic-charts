@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ template "kibana.fullname" . }}
   labels:
-    app: {{ template "kibana.name" . }}
+    app: {{ template "kibana.fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
     component: {{ .Values.name }}
     heritage: {{ .Release.Service }}
@@ -17,5 +17,5 @@ spec:
     protocol: TCP
     targetPort: ui
   selector:
-    app: {{ template "kibana.name" . }}
+    app: {{ template "kibana.fullname" . }}
     component: {{ .Values.name }}

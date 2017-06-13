@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: {{ template "fluentd.configmap.fullname" .}}
   labels:
-    app: {{ template "fluentd.name" . }}
+    app: {{ template "fluentd.fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
     component: {{ .Values.name }}
     heritage: {{ .Release.Service }}

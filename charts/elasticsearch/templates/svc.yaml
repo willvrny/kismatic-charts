@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: {{ template "elasticsearch.service.fullname" . }}
   labels:
-    app: {{ template "elasticsearch.name" . }}
+    app: {{ template "elasticsearch.fullname" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
     component: {{ .Values.name }}
     heritage: {{ .Release.Service }}
@@ -12,7 +12,7 @@ metadata:
 spec:
   type: {{ .Values.serviceType }}
   selector:
-    app: {{ template "elasticsearch.name" . }}
+    app: {{ template "elasticsearch.fullname" . }}
     component: {{ .Values.name }}
     role: client
   ports:
