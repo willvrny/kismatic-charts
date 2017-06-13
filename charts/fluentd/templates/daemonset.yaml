@@ -3,7 +3,7 @@ kind: DaemonSet
 metadata:
   name: {{ template "fluentd.fullname" . }}
   labels:
-    app: {{ template "fluentd.fullname" . }}
+    app: {{ template "fluentd.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
     component: {{ .Values.name | quote }}
     heritage: {{ .Release.Service | quote }}
@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       labels:
-        app: {{ template "fluentd.fullname" . }}
+        app: {{ template "fluentd.name" . }}
         component: {{ .Values.name | quote }}
         release: {{ .Release.Name | quote }}
         kubernetes.io/cluster-service: "true"
