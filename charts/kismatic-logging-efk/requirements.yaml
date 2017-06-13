@@ -1,0 +1,13 @@
+dependencies:
+  - name: elasticsearch
+    version: 0.1.0
+    #repository: https://apprenda.github.io/kismatic-charts/
+    repository: /Users/abrand/Dev/go/src/github.com/apprenda/kismatic-charts/elasticsearch-0.1.0.tgz
+  - name: kibana
+    version: 0.1.0
+    #repository: https://apprenda.github.io/kismatic-charts/
+    repository: /Users/abrand/Dev/go/src/github.com/apprenda/kismatic-charts/kibana-0.1.0.tgz
+  - name: fluentd
+    version: 0.1.0
+    repository: /Users/abrand/Dev/go/src/github.com/apprenda/kismatic-charts/fluentd-0.1.0.tgz
+    #repository: https://apprenda.github.io/kismatic-charts/

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ template "elasticsearch.service.fullname" . }}
+  name: {{ .Values.serviceName | default (include "elasticsearch.service.fullname" .) }}
   labels:
     app: {{ template "elasticsearch.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
