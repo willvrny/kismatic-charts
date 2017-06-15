@@ -1,6 +1,5 @@
-.PHONY: helm-docker-build
-helm-docker-build:
-	docker build . -t helm
+.PHONY: dist
+dist: package index
 
 .PHONY: package
 package: helm-docker-build
@@ -9,6 +8,8 @@ package: helm-docker-build
 .PHONY: index
 index: helm-docker-build
 	docker run -v $(shell pwd)/docs:/docs helm helm repo index /docs --url https://apprenda.github.io/kismatic-charts/
+	
+.PHONY: helm-docker-build
+helm-docker-build:
+	docker build . -t helm
 
-.PHONY: dist
-dist: package index

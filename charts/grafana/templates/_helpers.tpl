@@ -22,3 +22,10 @@ We truncate at 63 chars because some Kubernetes name fields are limited to this 
 {{- define "grafana.server.fullname" -}}
 {{- printf "%s-%s" .Release.Name "grafana" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
+
+{{/*
+Create the prometheus datasource name. Will be the same as the prometheus-server service name
+*/}}
+{{- define "datasource.defaul.url" -}}
+{{- printf "%s%s-%s-%s" "http://" .Release.Name "prometheus" "server" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}

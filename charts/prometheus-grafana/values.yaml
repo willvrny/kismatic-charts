@@ -805,7 +805,8 @@ grafana:
         ## Synatx like `http://<release name>-<server name>:<port number>
         ## Default: "http://limping-tiger-server"
         ##
-        url: "http://monitoring-prometheus-server"
+        #url: "http://monitoring-prometheus-server"
+        url:
 
         ## The name of the database at the datasource.
         ## Required parameter when used with elasticsearch, which refers to the index_name

@@ -39,8 +39,6 @@ spec:
           - "-H"
           - "Content-Type: application/json;charset=UTF-8"
           - "--data-binary"
-          {{- with .Values.server.setDatasource.datasource }}
-          - "{\"name\":\"{{ .name }}\",\"type\":\"{{ .type }}\",\"url\":\"{{ .url }}\",\"database\":\"{{ .database }}\",\"jsonData\":{ {{ .jsonData }} },\"access\":\"{{ .access }}\",\"isDefault\":{{ .isDefault }}}"
-          {{- end }}
+          - "{\"name\":\"{{ .Values.server.setDatasource.datasource.name }}\",\"type\":\"{{ .Values.server.setDatasource.datasource.type }}\",\"url\":\"{{ .Values.server.setDatasource.datasource.url | default (include "datasource.defaul.url" .) }}\",\"database\":\"{{ .Values.server.setDatasource.datasource.database }}\",\"jsonData\":{ {{ .Values.server.setDatasource.datasource.jsonData }} },\"access\":\"{{ .Values.server.setDatasource.datasource.access }}\",\"isDefault\":{{ .Values.server.setDatasource.datasource.isDefault }}}"
       restartPolicy: {{ .Values.server.setDatasource.restartPolicy }}
 {{- end -}}
