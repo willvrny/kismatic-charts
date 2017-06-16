@@ -34,7 +34,6 @@ Fully qualified name for ElasticSearch stateful set headless service
 {{- printf "%s-%s" .Release.Name "es-data" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
 
-
 {{/*
 Fully qualified name for ElasticSearch service
 */}}

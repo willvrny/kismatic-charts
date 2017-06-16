@@ -26,7 +26,7 @@ spec:
 {{ toYaml .Values.resources | indent 10 }}
         env:
           - name: "ELASTICSEARCH_URL"
-            value: "http://{{ .Values.elasticsearch.host }}:{{ .Values.elasticsearch.port }}"
+            value: "http://{{ .Values.elasticsearch.host | default (include "elasticsearch.service.fullname" .) }}:{{ .Values.elasticsearch.port }}"
         ports:
         - containerPort: 5601
           name: ui

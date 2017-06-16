@@ -21,3 +21,10 @@ Fully qualified name for Fluentd ConfigMap
 {{- define "fluentd.configmap.fullname" -}}
 {{- printf "%s-%s" .Release.Name "fluentd-config" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
+
+{{/*
+Fully qualified name for ElasticSearch service
+*/}}
+{{- define "elasticsearch.service.fullname" -}}
+{{- printf "%s-%s" .Release.Name "elasticsearch" | trunc 63 | trimSuffix "-" -}}
+{{- end -}}

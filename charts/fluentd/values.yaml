@@ -10,7 +10,8 @@ resources:
     memory: 200Mi
 
 elasticsearch:
-  host: elasticsearch
+  # override the hostname of the elasticsearch service.
+  # host: elasticsearch
   port: 9200
 
 configFiles:

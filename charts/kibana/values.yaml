@@ -4,7 +4,7 @@ image: blacktop/kibana:5.4
 serviceType: ClusterIP
 
 elasticsearch:
-  host: elasticsearch
+  # host: elasticsearch
   port: 9200
 
 resources:

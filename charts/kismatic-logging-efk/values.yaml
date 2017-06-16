@@ -1,10 +1,10 @@
-elasticsearch:
-  serviceName: "kismatic-logging-es"
+# elasticsearch:
+#   serviceName: "kismatic-logging-es"
 
-kibana:
-  elasticsearch:
-    host: "kismatic-logging-es"
+# kibana:
+#   elasticsearch:
+#     host: "kismatic-logging-es"
 
-fluentd:
-  elasticsearch:
-    host: "kismatic-logging-es"
+# fluentd:
+#   elasticsearch:
+#     host: "kismatic-logging-es"
