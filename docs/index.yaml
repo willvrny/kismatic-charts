@@ -1,7 +1,7 @@
 apiVersion: v1
 entries:
   grafana:
-  - created: 2017-06-15T17:39:58.599996804Z
+  - created: 2017-06-16T14:21:48.692577275Z
     description: The leading tool for querying and visualizing time series and metrics.
     digest: ad91ddedc88e1117fdc6e5d841ff03b09f1d26537c0ffcd32653f895385c28f5
     engine: gotpl
@@ -20,7 +20,7 @@ entries:
     urls:
     - https://apprenda.github.io/kismatic-charts/grafana-0.3.6.tgz
     version: 0.3.6
-  - created: 2017-06-15T17:39:58.597510935Z
+  - created: 2017-06-16T14:21:48.689616073Z
     description: The leading tool for querying and visualizing time series and metrics.
     digest: a54c6840abe3f2ba78bd3de0686dcbbda5a387ed3f3936125917ed73a25878ce
     engine: gotpl
@@ -37,10 +37,10 @@ entries:
     version: 0.3.5
   prometheus-grafana:
   - apiVersion: v1
-    created: 2017-06-15T17:39:58.604069247Z
+    created: 2017-06-16T14:21:48.696400889Z
     description: A monitoring stack comprising of prometheus and grafana, with a configured
       datasource and some starter dashboards
-    digest: 5971afeee73e393207e0b82adaf3dace9148dba9b27edcc1e7249526775d8de2
+    digest: 2ca95c78a8781121b94076b5bba015119b214e241ff9f2022ae87be75b6c7809
     maintainers:
     - email: dkoshkin@apprenda.com
       name: Dimitri Koshkin
@@ -50,4 +50,4 @@ entries:
     urls:
     - https://apprenda.github.io/kismatic-charts/prometheus-grafana-1.0.0.tgz
     version: 1.0.0
-generated: 2017-06-15T17:39:58.595042316Z
+generated: 2017-06-16T14:21:48.687149179Z
