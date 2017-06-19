@@ -5,7 +5,7 @@ metadata:
   labels:
     app: {{ template "fluentd.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-    component: {{ .Values.name | quote }}
+    component: "fluentd"
     heritage: {{ .Release.Service | quote }}
     release: {{ .Release.Name | quote }}
     kubernetes.io/cluster-service: "true"
@@ -14,7 +14,7 @@ spec:
     metadata:
       labels:
         app: {{ template "fluentd.name" . }}
-        component: {{ .Values.name | quote }}
+        component: "fluentd"
         release: {{ .Release.Name | quote }}
         kubernetes.io/cluster-service: "true"
     spec:

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: {{ template "kibana.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-    component: {{ .Values.name | quote }}
+    component: "kibana"
     heritage: {{ .Release.Service | quote }}
     release: {{ .Release.Name | quote }}
     kubernetes.io/cluster-service: "true"
@@ -18,5 +18,5 @@ spec:
     targetPort: ui
   selector:
     app: {{ template "kibana.name" . }}
-    component: {{ .Values.name | quote }}
+    component: "kibana"
     release: {{ .Release.Name | quote }}

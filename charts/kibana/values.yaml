@@ -1,12 +1,28 @@
-name: kibana
-replicas: 1
+## Kibana container image
+## 
 image: blacktop/kibana:5.4
+
+## Number of replicas to be deployed
+## 
+replicas: 1
+
+## Kubernetes service type for the Kibana dashboard
+## 
 serviceType: ClusterIP
 
+## Elasticsearch configuration
+## 
 elasticsearch:
-  # host: elasticsearch
+  ## The host or IP of the elasticsearch cluster
+  ##
+  # host:
+  ## The port to be used for connecting to the elasticsearch cluster
+  ## 
   port: 9200
 
+## Configure resource requests and limits
+## see: http://kubernetes.io/docs/user-guide/compute-resources/
+##
 resources:
   limits:
     cpu: 100m

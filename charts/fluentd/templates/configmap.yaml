@@ -5,7 +5,7 @@ metadata:
   labels:
     app: {{ template "fluentd.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-    component: {{ .Values.name | quote }}
+    component: "fluentd"
     heritage: {{ .Release.Service | quote }}
     release: {{ .Release.Name | quote }}
 data:

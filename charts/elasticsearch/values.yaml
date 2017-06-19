@@ -1,21 +1,49 @@
-name: elasticsearch
+## Elasticsearch image name
+##
 image: quay.io/pires/docker-elasticsearch-kubernetes:5.4.0
+
+## Elasticsearch cluster name
+##
 clusterName: myesdb
+
+## Elasticsearch client service type
+##
 serviceType: ClusterIP
 
-# https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html
+## If true, an init-container will configure the host's machine mmap limit.
+## This requires the ability to run privileged containers.
+## See: https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html
+##
 increaseMemMapLimit: true
 
+## Elasticsearch client node configuration
+##
 client:
   replicas: 2
 
+## Elasticsearch master node configuration
+##
 master:
   replicas: 3
 
+## Elasticsearch data node configuration
+##
 data:
   replicas: 2
+
+  ## Enable persistence using Persistent Volume Claims
+  ## see: http://kubernetes.io/docs/user-guide/persistent-volumes/
+  ##
   persistence:
     enabled: true
-    storageClasee: default
+
+    ## Persistent volume storage class
+    ##
+    storageClass: default
+
+    ## Persistent volume access mode
+    ##
     accessMode: ReadWriteOnce
-    storage: 12Gi
+
+    ## Persistent volume size
+    size: 12Gi

@@ -5,7 +5,7 @@ metadata:
   labels:
     app: {{ template "elasticsearch.name" . }}
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
-    component: {{ .Values.name | quote }}
+    component: "elasticsearch"
     heritage: {{ .Release.Service | quote }}
     release: {{ .Release.Name | quote }}
     role: data
@@ -16,6 +16,6 @@ spec:
   clusterIP: None
   selector:
     app: {{ template "elasticsearch.name" . }}
-    component: {{ .Values.name | quote }}
+    component: "elasticsearch"
     release: {{ .Release.Name | quote }}
     role: data

@@ -1,7 +1,10 @@
-name: fluentd
-
+## Fluentd container image
+## 
 image: fluent/fluentd-kubernetes-daemonset:v0.12-elasticsearch
 
+## Configure resource requests and limits
+## see: http://kubernetes.io/docs/user-guide/compute-resources/
+##
 resources:
   limits:
     memory: 200Mi
@@ -9,11 +12,18 @@ resources:
     cpu: 100m
     memory: 200Mi
 
+## Elasticsearch configuration
 elasticsearch:
-  # override the hostname of the elasticsearch service.
-  # host: elasticsearch
+  ## The host or IP of the elasticsearch cluster
+  ##
+  # host:
+  ## The port to be used for connecting to the elasticsearch cluster
+  ## 
   port: 9200
 
+
+## Fluentd configuration files
+##
 configFiles:
   fluent.conf: |
     @include kubernetes.conf
