@@ -31,7 +31,7 @@ The command removes all the Kubernetes components associated with the chart and 
 
 | Parameter                              | Description                         | Default                                           |
 |----------------------------------------|-------------------------------------|---------------------------------------------------|
-| `server.image`                         | Container image to run              | grafana/grafana:latest                            |
+| `server.image`                         | Container image to run              | grafana/grafana:4.3.2                            |
 | `server.adminUser`                     | Admin user username                 | admin                                             |
 | `server.adminPassword`                 | Admin user password                 | admin                                             |
 | `server.persistentVolume.enabled`      | Create a volume to store data       | true                                              |

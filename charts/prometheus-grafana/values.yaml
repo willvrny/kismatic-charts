@@ -624,7 +624,7 @@ grafana:
 
     ## Grafana Docker image
     ##
-    image: "grafana/grafana:latest"
+    image: "grafana/grafana:4.3.2"
 
     nodeSelector: {}
 
