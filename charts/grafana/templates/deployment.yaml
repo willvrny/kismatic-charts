@@ -58,6 +58,8 @@ spec:
           volumeMounts:
             - name: config-volume
               mountPath: {{ default "/etc/grafana" .Values.server.configLocalPath | quote }}
+            - name: dashboard-volume
+              mountPath: {{ default "/var/lib/grafana/dashboards" .Values.server.dashboardLocalPath | quote }}
             - name: storage-volume
               mountPath: {{ default "/var/lib/grafana/data" .Values.server.storageLocalPath | quote }}
         - name: "{{ .Values.watcher.name }}"

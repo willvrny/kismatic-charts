@@ -9,4 +9,5 @@ metadata:
     release: "{{ .Release.Name }}"
   name: {{ template "grafana.server.fullname" . }}-dashs
 data:
-{{ toYaml .Values.serverDashboardFiles | indent 2 }}
+{{ (.Files.Glob "dashboards/*").AsConfig | indent 2 }}
+{{ (.Files.Glob "datasources/*").AsConfig | indent 2 }}
