@@ -9,4 +9,5 @@ metadata:
     release: {{ .Release.Name }}
   name: {{ template "prometheus.server.fullname" . }}
 data:
-{{ toYaml .Values.serverFiles | indent 2 }}
+  prometheus.yml: |
+{{- include "prometheus.yml.tpl" . | indent 4 -}}
